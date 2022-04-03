@@ -17,39 +17,39 @@ public class SintaxeJava8 {
 
         System.out.println("[DIGITE] ORDEM DA MATRIZ");
         int n = keyboard.nextInt();
-        boolean quadradoPerfeito = true;
-        int[][] matriz = new int[n][n];
+        boolean perfectSquare = true;
+        int[][] matrix = new int[n][n];
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 System.out.println("[DIGITE] VALOR A SER INSERIDO");
-                matriz[i][j] = keyboard.nextInt();
+                matrix[i][j] = keyboard.nextInt();
             }
         }
         //Somando os elementos da diagonal principal
         int sumDiagonalP = 0;
         for (int i = 0; i < n; i++) {
-            sumDiagonalP = sumDiagonalP + matriz[i][i];
+            sumDiagonalP = sumDiagonalP + matrix[i][i];
         }
 
         //Somando os elementos da diagonal secundária
         int sumDiagonalS = 0;
         for (int i = 0; i < n; i++) {
-            sumDiagonalS = sumDiagonalS + matriz[i][n - i - 1];
+            sumDiagonalS = sumDiagonalS + matrix[i][n - i - 1];
         }
 
         if (sumDiagonalS == sumDiagonalP) {
             //Verifica se a soma da linhas são iguais
-            int sumLinhas = 0;
+            int sumLines = 0;
             boolean everyLineHasSumEqual = true;
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
-                    sumLinhas = sumLinhas + matriz[i][j];
+                    sumLines = sumLines + matrix[i][j];
                 }
-                if (sumLinhas != sumDiagonalS) {
+                if (sumLines != sumDiagonalS) {
                     everyLineHasSumEqual = false;
                 }
-                sumLinhas = 0;
+                sumLines = 0;
             }
             //Verificar se a soma das colunas são iguais
             if (everyLineHasSumEqual) {
@@ -57,10 +57,10 @@ public class SintaxeJava8 {
 
                 for (int i = 0; i < n; i++) {
                     for (int j = 0; j < n; j++) {
-                        sumCol = sumCol + matriz[j][i];
+                        sumCol = sumCol + matrix[j][i];
                     }
-                    if (sumCol != sumDiagonalS && sumCol != sumLinhas) {
-                        quadradoPerfeito = false;
+                    if (sumCol != sumDiagonalS && sumCol != sumLines) {
+                        perfectSquare = false;
                     }
                     sumCol = 0;
                 }
@@ -68,7 +68,7 @@ public class SintaxeJava8 {
             }
         }
 
-        if (quadradoPerfeito) {
+        if (perfectSquare) {
             System.out.println("Essa matriz eh um quadrado perfeito!");
         } else {
             System.out.println("Essa matriz não eh um quadrado perfeito!");
@@ -77,7 +77,7 @@ public class SintaxeJava8 {
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                System.out.print(matriz[i][j] + " ");
+                System.out.print(matrix[i][j] + " ");
             }
             System.out.println(" ");
         }
