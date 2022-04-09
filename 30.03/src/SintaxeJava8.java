@@ -27,14 +27,11 @@ public class SintaxeJava8 {
             }
         }
         //Somando os elementos da diagonal principal
-        int sumDiagonalP = 0;
-        for (int i = 0; i < n; i++) {
-            sumDiagonalP = sumDiagonalP + matrix[i][i];
-        }
-
         //Somando os elementos da diagonal secundária
+        int sumDiagonalP = 0;
         int sumDiagonalS = 0;
         for (int i = 0; i < n; i++) {
+            sumDiagonalP = sumDiagonalP + matrix[i][i];
             sumDiagonalS = sumDiagonalS + matrix[i][n - i - 1];
         }
 

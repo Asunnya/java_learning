@@ -23,7 +23,7 @@ public class SintaxeJava1 {
         for (int i = 0; i < values; i++) {
 
             System.out.println("[DIGITE] Um valor");
-            int value = keyboard.nextInt();
+            float value = keyboard.nextFloat();
             if (value < 0) {
                 negativeValues++;
             }
