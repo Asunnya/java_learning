@@ -49,10 +49,32 @@ public class Baralho {
         int lenV = cartas.length;
         for (int i=0 ; i < lenV-1; i++) {
             for (int j=1; j < lenV; j++) {
-                if (cartas[j].valor < cartas[j-1].valor) {
-                    int auxValor = cartas[j-1].valor;
-                    cartas[j-1].valor = cartas[j].valor;
-                    cartas[j].valor = auxValor;
+                if (cartas[j].naipe.charAt(0) < cartas[j-1].naipe.charAt(0)) {
+                    int auxValor = cartas[j - 1].valor;
+                    String auxNaipe = cartas[j - 1].naipe;
+                    String auxId = cartas[j - 1].nomeIdent;
+
+                    cartas[j - 1].valor = cartas[j].valor;
+                    cartas[j - 1].naipe = cartas[j].naipe;
+                    cartas[j - 1].nomeIdent= cartas[j].nomeIdent;
+                    cartas[j].valor = (auxValor);
+                    cartas[j].naipe = (auxNaipe);
+                    cartas[j].nomeIdent = (auxId);
+                }
+
+                if (cartas[j].naipe.charAt(0) == cartas[j-1].naipe.charAt(0)) {
+                    if (cartas[j].valor < cartas[j - 1].valor) {
+                        int auxValor = cartas[j - 1].valor;
+                        String auxNaipe = cartas[j - 1].naipe;
+                        String auxId = cartas[j - 1].nomeIdent;
+
+                        cartas[j - 1].valor = cartas[j].valor;
+                        cartas[j - 1].naipe = cartas[j].naipe;
+                        cartas[j - 1].nomeIdent = cartas[j].nomeIdent;
+                        cartas[j].valor = (auxValor);
+                        cartas[j].naipe = (auxNaipe);
+                        cartas[j].nomeIdent = (auxId);
+                    }
                 }
             }
         }

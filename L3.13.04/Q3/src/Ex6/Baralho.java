@@ -57,19 +57,35 @@ public class Baralho {
         int lenV = cartas.length;
         for (int i=0 ; i < lenV-1; i++) {
             for (int j=1; j < lenV; j++) {
-                if (cartas[j].getValor() < cartas[j-1].getValor()) {
+                if (cartas[j].getNaipe().charAt(0) < cartas[j-1].getNaipe().charAt(0)) {
+                    int auxValor = cartas[j - 1].getValor();
+                    String auxNaipe = cartas[j - 1].getNaipe();
+                    String auxId = cartas[j - 1].getNomeIdent();
 
-                    int auxValor = cartas[j-1].getValor();
-                    String auxNaipe = cartas[j-1].getNaipe();
-                    String auxId = cartas[j-1].getNomeIdent();
-
-                    cartas[j-1].setValor(cartas[j].getValor());
-                    cartas[j-1].setNaipe(cartas[j].getNaipe());
-                    cartas[j-1].setNomeIdent(cartas[j].getNomeIdent());
+                    cartas[j - 1].setValor(cartas[j].getValor());
+                    cartas[j - 1].setNaipe(cartas[j].getNaipe());
+                    cartas[j - 1].setNomeIdent(cartas[j].getNomeIdent());
                     cartas[j].setValor(auxValor);
                     cartas[j].setNaipe(auxNaipe);
                     cartas[j].setNomeIdent(auxId);
 
+                }
+
+                if (Objects.equals(cartas[j].getNaipe(), cartas[j - 1].getNaipe())) {
+                    if (cartas[j].getValor() < cartas[j-1].getValor()) {
+
+                        int auxValor = cartas[j-1].getValor();
+                        String auxNaipe = cartas[j-1].getNaipe();
+                        String auxId = cartas[j-1].getNomeIdent();
+
+                        cartas[j-1].setValor(cartas[j].getValor());
+                        cartas[j-1].setNaipe(cartas[j].getNaipe());
+                        cartas[j-1].setNomeIdent(cartas[j].getNomeIdent());
+                        cartas[j].setValor(auxValor);
+                        cartas[j].setNaipe(auxNaipe);
+                        cartas[j].setNomeIdent(auxId);
+
+                    }
                 }
             }
         }

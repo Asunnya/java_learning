@@ -27,7 +27,7 @@ public class main {
             System.out.println("[DIGITE UM VALOR NEGATIVO]: PARA EMBARALHAR\t[DIGITE UM VALOR POSITIVO]: PARA NAO EMBARALHAR");
              nO = keyboardInt.nextInt();
         }
-        /*
+
         System.out.println("[DIGITE UM VALOR NEGATIVO]: PARA ORDENAR\t[DIGITE UM VALOR POSITIVO]: PARA NAO ORDENAR");
         int n1 = keyboardInt.nextInt();
 
@@ -37,7 +37,7 @@ public class main {
             baralho.visualizarCartas(baralho.baralhoDeCartas, baralho.qtdDeCartas);
             System.out.println("[DIGITE UM VALOR NEGATIVO]: PARA ORDENAR\t[DIGITE UM VALOR POSITIVO]: PARA NAO ORDENAR");
             n1 = keyboardInt.nextInt();
-        }*/
+        }
 
         baralho.visualizarCartas(baralho.baralhoDeCartas, baralho.qtdDeCartas);
     }
