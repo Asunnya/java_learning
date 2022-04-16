@@ -18,12 +18,17 @@ public class Celular {
     public void enviarMensagem(Mensagem mensagem, Celular celular) {
         mensagens[qtdMensagensTotais] = mensagem;
         qtdMensagensTotais++;
-        celular.nivelBateria--;
+        if (celular.nivelBateria > 0) {
+            celular.nivelBateria--;
+        }
     }
     public void ligar(Ligacao ligacao, Celular celular) {
         ligacoes[qtdLigacoesTotais] = ligacao;
         qtdLigacoesTotais++;
         celular.nivelBateria -= 1 * ligacao.tempoEmMinutos/0.083333;
+        if (celular.nivelBateria < 0) {
+            celular.nivelBateria = 0;
+        }
     }
     public void visualizarCelular(Celular celular) {
         System.out.println("-------------- CELULAR --------------------");

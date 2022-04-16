@@ -1,9 +1,5 @@
 package Ex6;
 
-import Ex8.Celular;
-import Ex8.Ligacao;
-import Ex8.Mensagem;
-
 import java.util.Scanner;
 
 /*
@@ -18,33 +14,33 @@ public class main {
         Scanner keyboardStr = new Scanner(System.in);
         Scanner keyboardInt = new Scanner(System.in);
 
-        System.out.println("DIGITE A QUANTIDADE DE CARTAS");
-        int nC = keyboardInt.nextInt();
+        baralho.gerarCartas(baralho);
 
-        for (int i=0; i < nC; i++) {
-            Carta carta = new Carta();
-            preencherCartas(carta, keyboardStr, baralho);
-        }
-
-        baralho.visualizarCartas(baralho.cartas, baralho.qtdDeCartas);
+        baralho.visualizarCartas(baralho.baralhoDeCartas, baralho.qtdDeCartas);
         System.out.println("[DIGITE UM VALOR NEGATIVO]: PARA EMBARALHAR\t[DIGITE UM VALOR POSITIVO]: PARA NAO EMBARALHAR");
         int nO = keyboardInt.nextInt();
 
         while (nO < 0) {
-            baralho.embaralhar(baralho.cartas, baralho.qtdDeCartas);
+            baralho.embaralhar(baralho.baralhoDeCartas, baralho.qtdDeCartas);
             System.out.println("------------------- EMBARALHADO ------------------");
-            baralho.visualizarCartas(baralho.cartas, baralho.qtdDeCartas);
+            baralho.visualizarCartas(baralho.baralhoDeCartas, baralho.qtdDeCartas);
             System.out.println("[DIGITE UM VALOR NEGATIVO]: PARA EMBARALHAR\t[DIGITE UM VALOR POSITIVO]: PARA NAO EMBARALHAR");
              nO = keyboardInt.nextInt();
         }
-        baralho.visualizarCartas(baralho.cartas, baralho.qtdDeCartas);
+        /*
+        System.out.println("[DIGITE UM VALOR NEGATIVO]: PARA ORDENAR\t[DIGITE UM VALOR POSITIVO]: PARA NAO ORDENAR");
+        int n1 = keyboardInt.nextInt();
+
+        while (n1 < 0) {
+            baralho.ordenar(baralho.baralhoDeCartas, baralho.qtdDeCartas);
+            System.out.println("------------------- ORDENADO ------------------");
+            baralho.visualizarCartas(baralho.baralhoDeCartas, baralho.qtdDeCartas);
+            System.out.println("[DIGITE UM VALOR NEGATIVO]: PARA ORDENAR\t[DIGITE UM VALOR POSITIVO]: PARA NAO ORDENAR");
+            n1 = keyboardInt.nextInt();
+        }*/
+
+        baralho.visualizarCartas(baralho.baralhoDeCartas, baralho.qtdDeCartas);
     }
 
-    public static void preencherCartas(Carta carta, Scanner keyboardStr, Baralho baralho) {
-        System.out.println("DIGITE O NAIPE DA CARTA");
-        carta.naipe = keyboardStr.nextLine();
-        System.out.println("DIGITE O VALOR DA CARTA");
-        carta.valor = keyboardStr.nextLine();
-        baralho.gerarCarta(carta);
-    }
+
 }

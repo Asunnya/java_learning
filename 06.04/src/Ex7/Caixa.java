@@ -22,8 +22,8 @@ public class Caixa {
         }
         System.out.println("-----------------------------------------------------");
     }
-    public float buscandoPrecoItem(Produto[] produtos, Item[] itens, int qtdPedido, int qtdProdutos ) {
-        float preco = 0.0f;
+    public double buscandoPrecoItem(Produto[] produtos, Item[] itens, int qtdPedido, int qtdProdutos ) {
+        double preco = 0.0f;
 
         for (int i=0; i < qtdPedido; i++) {
             for (int j=0; j < qtdProdutos; j++) {
@@ -36,10 +36,10 @@ public class Caixa {
         System.out.println("Não foi encontrado um produto");
         return preco;
     }
-    public float valorTotalCompra(Produto[] produtos, Item[] itens, int qtdPedido, int qtdProdutos) {
-        float total = 0.0f;
+    public double valorTotalCompra(Produto[] produtos, Item[] itens, int qtdPedido, int qtdProdutos) {
+        double total = 0.0f;
 
-        float precoItem = buscandoPrecoItem(produtos, itens, qtdPedido, qtdProdutos);
+        double precoItem = buscandoPrecoItem(produtos, itens, qtdPedido, qtdProdutos);
         if (precoItem > 0.0) {
             total += precoItem * qtdPedido;
         }
@@ -47,7 +47,7 @@ public class Caixa {
     }
     public void pagandoPedidos(Produto[] produtos, Item[] itens, int qtdPedido, int qtdProdutos, Scanner keyboard) {
         String wordPagamento = ""; int opPagamento;
-        float valorTotal =  valorTotalCompra(produtos, itens, qtdPedido, qtdProdutos);
+        double valorTotal =  valorTotalCompra(produtos, itens, qtdPedido, qtdProdutos);
         System.out.println("O TOTAL DA COMPRA FOI DE " + valorTotal + " REAIS");
         System.out.println("[1] PAGAR NO CARTAO CREDITO\t[2] PAGAR NO CARTAO DEBITO\t[3] PAGAR NO DINHEIRO\t[4] PAGAR NO PIX");
         opPagamento = keyboard.nextInt();

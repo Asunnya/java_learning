@@ -2,6 +2,6 @@ package Ex7;
 
 public class Produto {
     String nome;
-    float preco;
+    double preco;
     int qtdeEstoque;
 }
