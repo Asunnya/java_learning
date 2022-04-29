@@ -13,11 +13,11 @@ public class Palestra {
     private int numeroParticipantes;
     private ArrayList<Participante> participantes = new ArrayList<Participante>();
 
-    public Palestra(String titulo, String nomePalestrante, String local, int dia, int mes,  String horarioInicio, int prazoDeDuracaoEmMinutos, int numeroMax, String dataString) {
+    public Palestra(Evento evento, String titulo, String nomePalestrante, String local, int dia, int mes,  String horarioInicio, int prazoDeDuracaoEmMinutos, int numeroMax, String dataString) {
         this.titulo = titulo;
         this.nomePalestrante = nomePalestrante;
         this.local = local;
-        this.data = new Data(dia, mes, Evento.getDataFim().getAno());
+        this.data = new Data(dia, mes, evento.getDataFim().getAno());
         this.horarioInicio = horarioInicio;
         this.prazoDeDuracaoEmMinutos = prazoDeDuracaoEmMinutos;
         this.numeroMaximoParticipantes = numeroMax;

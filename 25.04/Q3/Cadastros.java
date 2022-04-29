@@ -1,19 +1,16 @@
 public class Cadastros {
 
-    private static int qtdEventos = 0;
     private static int qtdPalestras = 0;
 
-    protected static void cadastroInfomacoesParaOeEvento(int diaI, int mesI, int anoI, String hInicio, int diaF, int mesF, int anoF, String hFinal) {
-        if (qtdEventos < Evento.getQuantidadeDeEventos()) {
-            Evento.setEvento(diaI, mesI, anoI, hInicio, diaF, mesF, anoF, hFinal);
-            qtdEventos++;
-        }
+    protected static Evento cadastroInfomacoesParaOeEvento(int diaI, int mesI, int anoI, String hInicio, int diaF, int mesF, int anoF, String hFinal) {
+        Evento evento = Evento.getInstanciaEvento(diaI, mesI, anoI, hInicio, diaF, mesF, anoF, hFinal);
+        return evento;
     }
 
-    protected static boolean cadastroDasPalestras(String titulo, String nomePalestrante, String local, int dia, int mes,  String horarioInicio, int prazoDeDuracaoEmMinutos, int numeroMax, String dataString) {
+    protected static boolean cadastroDasPalestras(Evento evento, String titulo, String nomePalestrante, String local, int dia, int mes,  String horarioInicio, int prazoDeDuracaoEmMinutos, int numeroMax, String dataString) {
         if (qtdPalestras < Palestra.getNumeroMaxPalestra()) {
-            Palestra palestra = new Palestra(titulo, nomePalestrante, local, dia, mes, horarioInicio, prazoDeDuracaoEmMinutos, numeroMax, dataString);
-            Evento.addPalestra(palestra);
+            Palestra palestra = new Palestra(evento, titulo, nomePalestrante, local, dia, mes, horarioInicio, prazoDeDuracaoEmMinutos, numeroMax, dataString);
+            evento.addPalestra(palestra);
             qtdPalestras++;
             return true;
         }

@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class main {
     public static void main(String[] args) {
 
-        Organizador.criandoEvento();
+        Evento evento = Organizador.criandoEvento();
         int op;
         do {
             Scanner keyboardInt = new Scanner(System.in);
@@ -29,14 +29,14 @@ public class main {
                     do {
                         numeroDeMatricula = keyboardInt.nextInt();
                     } while (numeroDeMatricula < 0);
-                    menu.listandoParticipanteNaPalestra(numeroDeMatricula);
+                    menu.listandoParticipanteNaPalestra(evento, numeroDeMatricula);
                     break;
                 case 3:
                     Palestra palestraSolicitada;
                     do {
                         System.out.println("POR FAVOR, A PALESTRA QUE DESEJA CONSULTAR A VAGA ");
                         String palestraNome = keyboardStr.nextLine();
-                        palestraSolicitada = Evento.procurarPalestras(palestraNome);
+                        palestraSolicitada = evento.procurarPalestras(palestraNome);
 
                         if (palestraSolicitada == null) {
                             System.out.println("A PALESTRA SOLICITADA NAO FOI ENCONTRADA, VERIFIQUE O TITULO E TENTE NOVAMENTE ");
@@ -47,7 +47,7 @@ public class main {
                     System.out.printf("EXISTE %d VAGAS PARA A PALESTRA COM TITULO %s\n", palestraSolicitada.vagasDisponiveisPalestra(), palestraSolicitada.getTitulo());
                     break;
                 case 4:
-                    Evento.imprimirAllInfoPalestras();
+                    evento.imprimirAllInfoPalestras();
                     break;
                 case 5:
                     System.out.println("POR FAVOR, DIGITE SEU NUMERO DE MATRICULA ");
@@ -60,7 +60,7 @@ public class main {
                     do {
                         System.out.println("POR FAVOR, DIGITE O TITULO DA PALESTRA QUE DESEJA VERIFICAR A INSCRICAO");
                         String palestraNome = keyboardStr.nextLine();
-                        palestraDesejada = Evento.procurarPalestras(palestraNome);
+                        palestraDesejada = evento.procurarPalestras(palestraNome);
 
                         if (palestraDesejada == null) {
                             System.out.println("O TITULO DA PALESTRA INSERIDO NAO FOI ENCONTRADO, VERIFIQUE O TITULO E TENTE NOVAMENTE ");
@@ -68,7 +68,7 @@ public class main {
 
                     } while (palestraDesejada == null);
 
-                    if (menu.isParticipanteInscritoEmPalestra(palestraDesejada.getTitulo(), numeroDeMatriculaA)) {
+                    if (menu.isParticipanteInscritoEmPalestra(evento, palestraDesejada.getTitulo(), numeroDeMatriculaA)) {
                         System.out.println("O PARTICIPANTE ESTA INSCRITO NA PALESTRA");
                     } else {
                         System.out.println("O PARTICIPANTE NAO ESTA INSCRITO NA PALESTRA");

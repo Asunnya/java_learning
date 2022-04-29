@@ -3,9 +3,9 @@ import java.util.Objects;
 
 public class menu {
 
-    protected static boolean isParticipanteInscritoEmPalestra(String tituloPalestra, int numeroDeMatricula) {
+    protected static boolean isParticipanteInscritoEmPalestra(Evento evento, String tituloPalestra, int numeroDeMatricula) {
         ArrayList<String> participantePalestra = new ArrayList<String>();
-        participantePalestra = listandoParticipanteNaPalestra(numeroDeMatricula);
+        participantePalestra = listandoParticipanteNaPalestra(evento, numeroDeMatricula);
         int lenVetor = participantePalestra.size();
 
         if (lenVetor > 0) {
@@ -19,8 +19,8 @@ public class menu {
         return false;
     }
 
-    protected static ArrayList<String> listandoParticipanteNaPalestra(int numeroDeMatricula) { //busca o participante em todas as palestras e imprime todas as palestras que ele esta
-        ArrayList<Palestra> palestras = Evento.getPalestras();
+    protected static ArrayList<String> listandoParticipanteNaPalestra(Evento evento, int numeroDeMatricula) { //busca o participante em todas as palestras e imprime todas as palestras que ele esta
+        ArrayList<Palestra> palestras = evento.getPalestras();
 
         ArrayList<String> participantePalestra = new ArrayList<String>();
 

@@ -2,8 +2,8 @@
 import java.util.Scanner;
 
 public class Organizador {
-
-    public static void criandoEvento() {
+    private static Evento evento;
+    public static Evento criandoEvento() {
         Scanner keyboardStr = new Scanner(System.in);
         int[] dataInicioV; int[] dataFinalV;
 
@@ -21,7 +21,8 @@ public class Organizador {
         dataInicioV = Data.quebraData(dataInicio);
         dataFinalV = Data.quebraData(dataFinal);
 
-        Cadastros.cadastroInfomacoesParaOeEvento(dataInicioV[0], dataInicioV[1],dataInicioV[2], horarioInicio, dataFinalV[0], dataFinalV[1], dataFinalV[2], horarioFinal);
+        evento = Cadastros.cadastroInfomacoesParaOeEvento(dataInicioV[0], dataInicioV[1],dataInicioV[2], horarioInicio, dataFinalV[0], dataFinalV[1], dataFinalV[2], horarioFinal);
+        return evento;
     }
     public static boolean criandoPalestra() {
 
@@ -36,7 +37,7 @@ public class Organizador {
             System.out.println("[DIGITE]: O TITULO DA PALESTRA DESEJADA");
              tituloPalestra = keyboardStr.nextLine();
 
-            palestraExistente = Evento.procurarPalestras(tituloPalestra);
+            palestraExistente = evento.procurarPalestras(tituloPalestra);
 
             if (palestraExistente != null ) {
                 System.out.println("JA EXISTE UMA PALESTRA COM ESSE TITULO, POR FAVOR, ESCOLHA OUTRO");
@@ -65,7 +66,7 @@ public class Organizador {
         dataPalestraV = Data.quebraData(dataPalestra);
 
         //fazer retornar sucess cadastro e tratar, caso ele for verdadeiro, quer dizer que foi possivel cadastrar
-        return Cadastros.cadastroDasPalestras(tituloPalestra, nomePalestrante, local, dataPalestraV[0], dataPalestraV[1], horarioInicio, duracaoEmMinutos, numeroMax, dataPalestra);
+        return Cadastros.cadastroDasPalestras(evento, tituloPalestra, nomePalestrante, local, dataPalestraV[0], dataPalestraV[1], horarioInicio, duracaoEmMinutos, numeroMax, dataPalestra);
     }
     public static void criandoParticipante() {
         Scanner keyboardStr = new Scanner(System.in);
@@ -84,17 +85,17 @@ public class Organizador {
         Palestra palestraSolicitada;
         boolean palestraEmMaxDeParticipante = true;
 
-        Evento.imprimirTituloEDisponibilidadePalestras();
+        evento.imprimirTituloEDisponibilidadePalestras();
 
         do {
             System.out.println("[DIGITE]: O TITULO DA PALESTRA DESEJADA");
             String tituloPalestraDesejada = keyboardStr.nextLine(); //Mostrar as palestras antes
 
-            palestraSolicitada = Evento.procurarPalestras(tituloPalestraDesejada);
+            palestraSolicitada = evento.procurarPalestras(tituloPalestraDesejada);
 
             if (palestraSolicitada == null ) {
                 System.out.println("A PALESTRA SOLICITADA NAO FOI ENCONTRADA. VERIFIQUE E TENTE NOVAMENTE");
-                Evento.imprimirTituloEDisponibilidadePalestras();
+                evento.imprimirTituloEDisponibilidadePalestras();
             } else {
                 if (palestraSolicitada.vagasDisponiveisPalestra() > 0) {
                     palestraEmMaxDeParticipante = false;
