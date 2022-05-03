@@ -2,26 +2,36 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Agenda {
-     ArrayList<Contato> contatos = new ArrayList<Contato>();
+    private ArrayList<Contato> contatos = new ArrayList<Contato>();
 
-    public Contato buscarContato(int cpf) {
-        for (Contato contato: contatos ) {
-            if (((PessoaFisica) contato).getCpf() == cpf)  {
-                return contato;
+    public void addContatos(Contato contato) {
+        contatos.add(contato);
+    }
+
+    public Contato buscaContato(int chave) {
+        for (Contato contato : contatos) {
+            if (contato.getClass() == PessoaFisica.class) {
+                if (((PessoaFisica) contato).getCpf() == chave) {
+                    return contato;
+                }
+            }
+            else if (contato.getClass() == PessoaJuridica.class) {
+                if (((PessoaJuridica) contato).getCnpj() == chave) {
+                    return contato;
+                }
             }
         }
+
         return null;
     }
 
-    public Contato buscarContato(String cnpj) {
-        for (Contato contato: contatos ) {
-            if (Objects.equals(((PessoaJuridica) contato).getCnpj(), cnpj))  {
-                return contato;
-            }
-        }
-        return null;
-    }
-    //Aqui, pra mim o mais correto seria criar apenas um Busca contato e dar a chave e um argumento que saberia se fosse cpf ou se fosse cpnj
+    public void imprimeContatos() {
+        for (Contato contato : contatos) {
+            System.out.println(contato.toString());
 
+        }
+
+    }
+        //Aqui, pra mim o mais correto seria criar apenas um Busca contato e dar a chave e um argumento que saberia se fosse cpf ou se fosse cpnj
 
 }

@@ -1,3 +1,5 @@
+package Q4;
+
 public class PokemonEletrico extends Pokemon {
     private int attackEspecialEletrico;
 

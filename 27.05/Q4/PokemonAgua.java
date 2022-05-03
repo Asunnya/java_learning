@@ -1,3 +1,5 @@
+package Q4;
+
 public class PokemonAgua extends Pokemon {
     private int attackEspecialAgua;
     private int attaqueCondicaoEspecial;

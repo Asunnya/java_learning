@@ -1,3 +1,5 @@
+package Q4;
+
 public class Pokemon {
         protected String nome;
         protected int hitPoints;
