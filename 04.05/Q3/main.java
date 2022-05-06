@@ -19,7 +19,7 @@ public class main {
         arrayAreas.add(quadrado);
         arrayAreas.add(c);
 
-        System.out.println(AreaEPerimetro.somaArea(arrayAr
+        System.out.println(AreaEPerimetro.somaArea(arrayAreas));
 
     }
 }
