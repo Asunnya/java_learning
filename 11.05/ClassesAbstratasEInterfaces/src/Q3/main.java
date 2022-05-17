@@ -12,6 +12,8 @@ public class main {
 		Casa casinha2 = new Casa(false, 560, 70);
 		Escola cacilda = new Escola(true, 0, 100);
 		Escola elisiario = new Escola(false, 560, 70);
+		Bicicleta bike1 = new Bicicleta("Bike Bile");
+		Bicicleta bike2 = new Bicicleta("Bike Fla");
 
 
 		//O programa que cria a lista de objetos vai continuar funcionando após a modificação na estrutura de classes? (responda como comentário no código)
@@ -23,7 +25,8 @@ public class main {
 		listaEmissores.add(casinha2);
 		listaEmissores.add(cacilda);
 		listaEmissores.add(elisiario);
-
+		listaEmissores.add(bike1);
+		listaEmissores.add(bike2);
 
 		for (CarbonFootprint emisssores: listaEmissores) {
 			System.out.println(emisssores.toString());

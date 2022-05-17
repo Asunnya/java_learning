@@ -9,7 +9,7 @@ public interface CarbonFootprint {
 	int NUMBER_OF_FLIGHTS_MORE_FOUR_HOURS = 4400;
 	int NOT_RECYCLE_NEWSPAPER = 184;
 	int NOT_RECYCLE_ALUMINIUM = 166;
-
+	int BICYCLE_TIRE = 190;
 
 	double getCarbonFootprint();
 
